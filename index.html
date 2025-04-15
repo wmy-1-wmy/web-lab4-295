@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简历 - 王梦月</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .resume-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            font-size: 28px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #e0e0e0;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+            color: #495057;
+        }
+        .photo-cell {
+            text-align: center;
+            width: 120px;
+        }
+        .photo {
+            width: 100px;
+            height: 120px;
+            object-fit: cover;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .section-title {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .evaluation {
+            text-align: justify;
+            line-height: 1.8;
+        }
+        .icon {
+            margin-right: 8px;
+            color: #3498db;
+        }
+        select, input[type="text"], input[type="email"], input[type="tel"], textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: 14px;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+        select:focus, input:focus, textarea:focus {
+            border-color: #80bdff;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
+        }
+        .checkbox-group, .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .checkbox-item, .radio-item {
+            display: flex;
+            align-items: center;
+            margin-right: 15px;
+        }
+        .form-section {
+            margin-bottom: 15px;
+        }
+        .form-section label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #495057;
+        }
+        .edit-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 12px;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+        .edit-button:hover {
+            background-color: #2980b9;
+        }
+        fieldset {
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        legend {
+            font-weight: bold;
+            color: #3498db;
+            padding: 0 10px;
+            font-size: 16px;
+        }
+        .action-buttons {
+            text-align: center;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <h1>个人简历</h1>
+        
+        <fieldset>
+            <legend><i class="fas fa-user-circle"></i> 基本信息</legend>
+            <table>
+                <tr>
+                    <td rowspan="4" class="photo-cell">
+                        <img src="lab2-2401-295.jpg" alt="个人照片" class="photo">
+                        <p style="text-align:center; margin-top:5px;">王梦月</p>
+                    </td>
+                    <td><i class="fas fa-user icon"></i>姓名</td>
+                    <td>
+                        <input type="text" value="王梦月" id="name" maxlength="20">
+                    </td>
+                    <td><i class="fas fa-venus-mars icon"></i>性别</td>
+                    <td>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="female" name="gender" value="女" checked>
+                                <label for="female">女</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="male" name="gender" value="男">
+                                <label for="male">男</label>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><i class="fas fa-birthday-cake icon"></i>年龄</td>
+                    <td>
+                        <input type="text" value="19岁" id="age" maxlength="10">
+                    </td>
+                    <td><i class="fas fa-map-marker-alt icon"></i>籍贯</td>
+                    <td>
+                        <select id="hometown">
+                            <option value="山东滨州" selected>山东滨州</option>
+                            <option value="北京">北京</option>
+                            <option value="上海">上海</option>
+                            <option value="广东广州">广东广州</option>
+                            <option value="其他">其他</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><i class="fas fa-phone icon"></i>联系电话</td>
+                    <td>
+                        <input type="tel" value="18865636898" id="phone" maxlength="15">
+                    </td>
+                    <td><i class="fas fa-envelope icon"></i>电子邮箱</td>
+                    <td>
+                        <input type="email" value="w20050308_2024@qq.com" id="email" maxlength="50">
+                    </td>
+                </tr>
+                <tr>
+                    <td><i class="fas fa-heartbeat icon"></i>健康状况</td>
+                    <td>
+                        <select id="health">
+                            <option value="良好" selected>良好</option>
+                            <option value="一般">一般</option>
+                            <option value="有慢性病">有慢性病</option>
+                        </select>
+                    </td>
+                    <td><i class="fas fa-heart icon"></i>婚姻状况</td>
+                    <td>
+                        <select id="marriage">
+                            <option value="未婚" selected>未婚</option>
+                            <option value="已婚">已婚</option>
+                            <option value="离异">离异</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        
+        <fieldset>
+            <legend><i class="fas fa-graduation-cap"></i> 学历与求职意向</legend>
+            <table>
+                <tr>
+                    <td><i class="fas fa-user-graduate icon"></i>学历</td>
+                    <td>
+                        <select id="education">
+                            <option value="本科" selected>本科</option>
+                            <option value="大专">大专</option>
+                            <option value="硕士">硕士</option>
+                            <option value="博士">博士</option>
+                        </select>
+                    </td>
+                    <td><i class="fas fa-briefcase icon"></i>专业</td>
+                    <td>
+                        <select id="major">
+                            <option value="软件工程" selected>软件工程</option>
+                            <option value="计算机科学与技术">计算机科学与技术</option>
+                            <option value="电子信息工程">电子信息工程</option>
+                            <option value="人工智能">人工智能</option>
+                            <option value="数据科学与大数据技术">数据科学与大数据技术</option>
+                            <option value="网络工程">网络工程</option>
+                            <option value="信息安全">信息安全</option>
+                            <option value="物联网工程">物联网工程</option>
+                            <option value="其他">其他</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><i class="fas fa-university icon"></i>毕业院校</td>
+                    <td>
+                        <select id="school">
+                            <option value="鲁东大学" selected>鲁东大学</option>
+							<option value="烟台大学">烟台大学</option>
+							<option value="滨州医学院">滨州医学院</option>
+							<option value="山东工商学院">山东工商学院</option>
+                            <option value="清华大学">清华大学</option>
+                            <option value="北京大学">北京大学</option>
+                            <option value="浙江大学">浙江大学</option>
+                            <option value="上海交通大学">上海交通大学</option>
+                            <option value="复旦大学">复旦大学</option>
+                            <option value="南京大学">南京大学</option>
+                            <option value="其他">其他</option>
+                        </select>
+                    </td>
+                    <td><i class="fas fa-bullseye icon"></i>求职意向</td>
+                    <td>
+                        <select id="job">
+                            <option value="软件工程师" selected>软件工程师</option>
+                            <option value="前端开发">前端开发</option>
+                            <option value="后端开发">后端开发</option>
+                            <option value="全栈开发">全栈开发</option>
+                            <option value="测试工程师">测试工程师</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        
+        <fieldset>
+            <legend><i class="fas fa-certificate"></i> 技能证书</legend>
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cert1" name="certificates" value="英语四级" checked>
+                                <label for="cert1">英语四级</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cert2" name="certificates" value="英语六级">
+                                <label for="cert2">英语六级</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cert3" name="certificates" value="计算机二级" checked>
+                                <label for="cert3">计算机二级</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cert4" name="certificates" value="计算机三级">
+                                <label for="cert4">计算机三级</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cert5" name="certificates" value="软考证书">
+                                <label for="cert5">软考证书</label>
+                            </div>
+							<div class="checkbox-item">
+							    <input type="checkbox" id="cert5" name="certificates" value="软考证书">
+							    <label for="cert5">软件设计师（中级）</label>
+							</div>
+							<div class="checkbox-item">
+							    <input type="checkbox" id="cert5" name="certificates" value="软考证书">
+							    <label for="cert5">系统分析师（高级）</label>
+							</div>
+							<div class="checkbox-item">
+							    <input type="checkbox" id="cert5" name="certificates" value="软考证书">
+							    <label for="cert5">信息系统项目管理师（高级）</label>
+							</div>
+                        </div>
+                        <input type="text" id="otherCert" placeholder="其他证书" maxlength="50" style="margin-top: 10px;">
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        
+        <fieldset>
+            <legend><i class="fas fa-paint-brush"></i> 个人特长与爱好</legend>
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="skill1" name="skills" value="C语言编程" checked>
+                                <label for="skill1">C语言编程</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="skill2" name="skills" value="绘画" checked>
+                                <label for="skill2">绘画</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="skill3" name="skills" value="写作" checked>
+                                <label for="skill3">写作</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="skill4" name="skills" value="羽毛球" checked>
+                                <label for="skill4">羽毛球</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="skill5" name="skills" value="摄影">
+                                <label for="skill5">摄影</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="skill6" name="skills" value="音乐">
+                                <label for="skill6">音乐</label>
+                            </div>
+                        </div>
+                        <input type="text" id="otherSkill" placeholder="其他特长爱好" maxlength="50" style="margin-top: 10px;">
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        
+        <fieldset>
+            <legend><i class="fas fa-project-diagram"></i> 项目经历</legend>
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <div class="form-section">
+                            <label for="project1">项目1:</label>
+                            <input type="text" id="project1" value="学生成绩管理系统" maxlength="100">
+                            <textarea id="projectDesc1" rows="6" style="width: 100%; margin-top: 8px;">技术栈: Java, MySQL, Swing
+        
+        项目描述:
+        - 开发基于C/S架构的学生成绩管理系统，使用Java Swing实现用户界面
+        - 负责数据库设计和后端逻辑开发，使用MySQL存储学生信息和成绩数据
+        - 实现成绩录入、查询、统计和报表生成功能，支持多条件筛选和导出Excel
+        - 项目周期3个月，获得学校优秀课程设计奖，系统已在校内试用</textarea>
+                        </div>
+                        
+                        <div class="form-section">
+                            <label for="project2">项目2:</label>
+                            <input type="text" id="project2" value="校园二手交易平台" maxlength="100">
+                            <textarea id="projectDesc2" rows="6" style="width: 100%; margin-top: 8px;">技术栈: Spring Boot, Vue.js, Redis
+        
+        项目描述:
+        - 参与开发校园二手交易平台Web应用，使用Spring Boot和Vue.js技术栈
+        - 负责商品分类和搜索功能模块开发，实现Elasticsearch全文检索和智能推荐
+        - 使用Redis缓存热门商品数据，提高系统响应速度，QPS提升300%
+        - 项目获得2023年校级大学生创新创业大赛二等奖，注册用户500+</textarea>
+                        </div>
+                        
+                        <button class="edit-button" onclick="addProject()">添加更多项目</button>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        
+        <fieldset>
+            <legend><i class="fas fa-clipboard-check"></i> 自我评价</legend>
+            <table>
+                <tr>
+                    <td class="evaluation">
+                        <textarea id="selfEvaluation" rows="6" style="width: 100%;" maxlength="1000">在学习上，我始终保持着强烈的求知欲和上进心。我深知学习是一个不断积累和进步的过程，因此我总是以积极的态度面对每一门课程。对于专业知识，我不仅注重理论学习，还积极参与实践活动，将所学知识应用到实际中。通过不断地努力，我在学业上取得了较为优异的成绩。在性格方面，我乐观开朗，善于与人沟通交流，在团队合作中发挥积极的作用，我相信团队的力量是无穷的，通过与他人的合作，我们可以共同完成许多看似不可能的任务。同时，我也具备较强的独立思考能力和解决问题的能力，在面对困难和挑战时，我能够冷静分析，寻找最佳的解决方案。在生活中，我热爱艺术和文化活动。绘画和写作是我表达自己情感和想法的方式，它们让我更加了解自己，也让我能够更好地与他人分享我的内心世界。此外，我还喜欢运动，羽毛球和健身操不仅让我保持了健康的身体，还培养了我的毅力和坚持精神。总的来说，我认为自己是一个有梦想、有追求、有责任感的人。我希望能够不断提升自己，为实现自己的人生目标而努力奋斗。我相信，只要我坚持不懈地努力，就一定能取得成功。</textarea>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        
+        <div class="action-buttons">
+            <button class="edit-button" style="padding: 12px 25px; font-size: 16px;" onclick="saveResume()">保存简历</button>
+            <button class="edit-button" style="padding: 12px 25px; font-size: 16px; background-color: #2ecc71; margin-left: 15px;" onclick="printResume()">打印简历</button>
+        </div>
+    </div>
+
+    <script>
+        let projectCount = 2;
+        
+        function addProject() {
+            projectCount++;
+            const projectsTable = document.querySelector('fieldset:nth-last-child(2) table tr:last-child td');
+            const newProject = document.createElement('div');
+            newProject.className = 'form-section';
+            newProject.innerHTML = `
+                <label for="project${projectCount}">项目${projectCount}:</label>
+                <input type="text" id="project${projectCount}" placeholder="项目名称" maxlength="100">
+                <textarea id="projectDesc${projectCount}" rows="3" placeholder="项目描述" maxlength="500" style="width: 100%; margin-top: 8px;"></textarea>
+            `;
+            projectsTable.insertBefore(newProject, document.querySelector('button'));
+        }
+        
+        function saveResume() {
+            alert('简历信息已保存！');
+            // 这里可以添加实际保存逻辑，如发送到服务器或保存到本地存储
+        }
+        
+        function printResume() {
+            window.print();
+        }
+    </script>
+</body>
+</html>
