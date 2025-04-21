@@ -135,6 +135,20 @@
             text-align: center;
             margin-top: 25px;
         }
+        .clear-button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 15px;
+            transition: background-color 0.2s;
+        }
+        .clear-button:hover {
+            background-color: #c0392b;
+        }
     </style>
 </head>
 <body>
@@ -404,6 +418,7 @@
         <div class="action-buttons">
             <button class="edit-button" style="padding: 12px 25px; font-size: 16px;" onclick="saveResume()">保存简历</button>
             <button class="edit-button" style="padding: 12px 25px; font-size: 16px; background-color: #2ecc71; margin-left: 15px;" onclick="printResume()">打印简历</button>
+            <button class="clear-button" onclick="clearResume()">清除内容</button>
         </div>
     </div>
 
@@ -430,6 +445,70 @@
         
         function printResume() {
             window.print();
+        }
+        
+        function clearResume() {
+            if(confirm('确定要清除所有填写的内容吗？此操作不可撤销。')) {
+                // 清除文本输入框
+                document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], textarea').forEach(input => {
+                    input.value = '';
+                });
+                
+                // 重置单选按钮
+                document.getElementById('female').checked = true;
+                
+                // 重置下拉选择框
+                document.getElementById('hometown').value = '山东滨州';
+                document.getElementById('health').value = '良好';
+                document.getElementById('marriage').value = '未婚';
+                document.getElementById('education').value = '本科';
+                document.getElementById('major').value = '软件工程';
+                document.getElementById('school').value = '鲁东大学';
+                document.getElementById('job').value = '软件工程师';
+                
+                // 重置复选框
+                document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                    checkbox.checked = false;
+                });
+                // 重新选中默认的复选框
+                document.getElementById('cert1').checked = true;
+                document.getElementById('cert3').checked = true;
+                document.getElementById('skill1').checked = true;
+                document.getElementById('skill2').checked = true;
+                document.getElementById('skill3').checked = true;
+                document.getElementById('skill4').checked = true;
+                
+                // 恢复默认项目
+                document.getElementById('project1').value = '学生成绩管理系统';
+                document.getElementById('project2').value = '校园二手交易平台';
+                document.getElementById('projectDesc1').value = `技术栈: Java, MySQL, Swing
+        
+项目描述:
+- 开发基于C/S架构的学生成绩管理系统，使用Java Swing实现用户界面
+- 负责数据库设计和后端逻辑开发，使用MySQL存储学生信息和成绩数据
+- 实现成绩录入、查询、统计和报表生成功能，支持多条件筛选和导出Excel
+- 项目周期3个月，获得学校优秀课程设计奖，系统已在校内试用`;
+                document.getElementById('projectDesc2').value = `技术栈: Spring Boot, Vue.js, Redis
+        
+项目描述:
+- 参与开发校园二手交易平台Web应用，使用Spring Boot和Vue.js技术栈
+- 负责商品分类和搜索功能模块开发，实现Elasticsearch全文检索和智能推荐
+- 使用Redis缓存热门商品数据，提高系统响应速度，QPS提升300%
+- 项目获得2023年校级大学生创新创业大赛二等奖，注册用户500+`;
+                
+                // 恢复默认自我评价
+                document.getElementById('selfEvaluation').value = `在学习上，我始终保持着强烈的求知欲和上进心。我深知学习是一个不断积累和进步的过程，因此我总是以积极的态度面对每一门课程。对于专业知识，我不仅注重理论学习，还积极参与实践活动，将所学知识应用到实际中。通过不断地努力，我在学业上取得了较为优异的成绩。在性格方面，我乐观开朗，善于与人沟通交流，在团队合作中发挥积极的作用，我相信团队的力量是无穷的，通过与他人的合作，我们可以共同完成许多看似不可能的任务。同时，我也具备较强的独立思考能力和解决问题的能力，在面对困难和挑战时，我能够冷静分析，寻找最佳的解决方案。在生活中，我热爱艺术和文化活动。绘画和写作是我表达自己情感和想法的方式，它们让我更加了解自己，也让我能够更好地与他人分享我的内心世界。此外，我还喜欢运动，羽毛球和健身操不仅让我保持了健康的身体，还培养了我的毅力和坚持精神。总的来说，我认为自己是一个有梦想、有追求、有责任感的人。我希望能够不断提升自己，为实现自己的人生目标而努力奋斗。我相信，只要我坚持不懈地努力，就一定能取得成功。`;
+                
+                // 移除额外添加的项目
+                while(projectCount > 2) {
+                    const projectsTable = document.querySelector('fieldset:nth-last-child(2) table tr:last-child td');
+                    const lastProject = document.querySelector(`#project${projectCount}`).parentNode;
+                    projectsTable.removeChild(lastProject);
+                    projectCount--;
+                }
+                
+                alert('所有内容已清除并恢复默认值！');
+            }
         }
     </script>
 </body>
